@@ -1,0 +1,41 @@
+/* Gullwing Courier HUD: lit instruments on dark glass. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #0a141c; }
+#scene { display: block; width: 100vw; height: 100vh; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #cfeeff; }
+#hud-top-left { position: absolute; top: 14px; left: 16px; display: flex; gap: 18px; }
+#hud-top-right { position: absolute; top: 14px; right: 16px; display: flex; gap: 18px; align-items: flex-start; }
+.gauge { background: rgba(8, 20, 28, 0.72); border: 1px solid rgba(127, 212, 255, 0.45); border-radius: 8px; padding: 6px 10px; min-width: 92px; }
+.gauge .label { display: block; font-size: 10px; letter-spacing: 2px; color: #7fd4ff; }
+.gauge .value { display: block; font-size: 20px; font-weight: 700; color: #eaf7ff; text-shadow: 0 0 8px rgba(127, 212, 255, 0.8); }
+.bar { width: 110px; height: 12px; background: rgba(255, 255, 255, 0.12); border-radius: 6px; overflow: hidden; margin-top: 4px; }
+.bar .fill { height: 100%; border-radius: 6px; transition: width 0.15s linear; }
+.bar .fill.thr { background: #ffb020; width: 55%; }
+.bar .fill.fuel { background: #37d67a; width: 100%; }
+
+#hud-bottom-left { position: absolute; left: 16px; bottom: 16px; text-align: center; }
+#hud-attitude { background: rgba(8, 20, 28, 0.72); border: 1px solid rgba(127, 212, 255, 0.45); border-radius: 50%; }
+#hud-attitude-label { font-size: 10px; letter-spacing: 2px; color: #7fd4ff; margin-top: 4px; }
+
+#hud-bottom-center { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); text-align: center; }
+#hud-compass { border: 1px solid rgba(127, 212, 255, 0.45); border-radius: 6px; }
+#hud-mission { margin-top: 6px; font-size: 15px; font-weight: 700; letter-spacing: 1px; color: #ffb020; text-shadow: 0 0 10px rgba(255, 176, 32, 0.6); }
+#hud-objective { font-size: 13px; color: #eaf7ff; }
+
+#hud-message { position: absolute; left: 50%; top: 22%; transform: translateX(-50%); font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); opacity: 0; transition: opacity 0.3s; text-align: center; }
+#hud-warning { position: absolute; left: 50%; top: 15%; transform: translateX(-50%); font-size: 20px; font-weight: 800; letter-spacing: 1px; color: #ff5040; text-shadow: 0 0 14px rgba(255, 80, 64, 0.9); opacity: 0; text-align: center; }
+#hud-help { position: absolute; right: 16px; bottom: 16px; font-size: 11px; color: rgba(207, 238, 255, 0.75); text-align: right; max-width: 300px; }
+
+#menu, #end-screen { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(6, 16, 24, 0.55); z-index: 10; }
+#end-screen { display: none; }
+.menu-card { background: rgba(8, 22, 32, 0.92); border: 1px solid rgba(127, 212, 255, 0.5); border-radius: 16px; padding: 32px 40px; max-width: 620px; text-align: center; color: #eaf7ff; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+.menu-card h1 { margin: 0 0 6px; font-size: 40px; letter-spacing: 4px; color: #ffb020; text-shadow: 0 0 18px rgba(255, 176, 32, 0.5); }
+.menu-card .tagline { margin: 0 0 14px; font-size: 16px; color: #7fd4ff; font-style: italic; }
+.menu-card .story { font-size: 15px; line-height: 1.55; color: #d6ecf7; }
+.menu-card .controls { list-style: none; padding: 0; margin: 18px 0; font-size: 14px; line-height: 1.9; text-align: left; display: inline-block; }
+.menu-card .controls b { color: #ffb020; }
+.menu-card button { pointer-events: auto; cursor: pointer; background: #ffb020; color: #1a1206; border: none; border-radius: 10px; padding: 14px 34px; font-size: 18px; font-weight: 800; letter-spacing: 2px; margin-top: 6px; }
+.menu-card button:hover { background: #ffc44d; }
+.menu-card .fine { font-size: 12px; color: rgba(207, 238, 255, 0.6); margin-top: 16px; }
+#end-text { font-size: 16px; line-height: 1.6; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gullwing Courier — Island Air Taxi</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<canvas id="scene"></canvas>
+
+<div id="hud">
+  <div id="hud-top-left">
+    <div class="gauge"><span class="label">ALT</span><span id="hud-alt" class="value">0 FT</span></div>
+    <div class="gauge"><span class="label">SPD</span><span id="hud-spd" class="value">0 KT</span></div>
+    <div class="gauge"><span class="label">HDG</span><span id="hud-hdg" class="value">000° N</span></div>
+  </div>
+  <div id="hud-top-right">
+    <div class="gauge"><span class="label">THROTTLE</span><div class="bar"><div id="hud-thr" class="fill thr"></div></div></div>
+    <div class="gauge"><span class="label">FUEL</span><div class="bar"><div id="hud-fuel" class="fill fuel"></div></div></div>
+    <div class="gauge"><span class="label">TIME</span><span id="hud-time" class="value">00:00</span></div>
+    <div class="gauge"><span class="label">SCORE</span><span id="hud-score" class="value">SCORE 0</span></div>
+  </div>
+  <div id="hud-bottom-left">
+    <canvas id="hud-attitude" width="120" height="120"></canvas>
+    <div id="hud-attitude-label">ATTITUDE</div>
+  </div>
+  <div id="hud-bottom-center">
+    <canvas id="hud-compass" width="420" height="34"></canvas>
+    <div id="hud-mission">SORTIE 1 — RING RUN</div>
+    <div id="hud-objective">Fly through all 8 rings over the valley</div>
+  </div>
+  <div id="hud-message"></div>
+  <div id="hud-warning"></div>
+  <div id="hud-help">W/S throttle · Arrows fly · Q/E rudder · hold mouse to steer · Space drop crate · C camera · P pause · M sound</div>
+</div>
+
+<div id="menu">
+  <div class="menu-card">
+    <h1>GULLWING COURIER</h1>
+    <p class="tagline">Island air taxi — three sorties, one little plane, no room for error.</p>
+    <p class="story">The islands need a courier. Fly the ring run over the valley, put her down
+    on the North Field, then drop the crate on the lake field and come home.
+    Mind your fuel, mind your speed — below 50 knots the wing stops flying.</p>
+    <ul class="controls">
+      <li><b>W / S</b> — throttle up / down</li>
+      <li><b>Arrow keys</b> — pitch and bank (bank to turn)</li>
+      <li><b>Q / E</b> — rudder</li>
+      <li><b>Hold left mouse</b> — steer with the mouse</li>
+      <li><b>Space</b> — drop the crate (sortie 3)</li>
+      <li><b>C</b> — chase / cockpit camera &nbsp;·&nbsp; <b>P</b> — pause &nbsp;·&nbsp; <b>M</b> — sound</li>
+    </ul>
+    <button id="fly-button">CLICK TO FLY</button>
+    <p class="fine">A complete flight game: throttle, lift and stall, fuel and damage,
+    three missions, landings that count. Built for the make.fun best flight game bounty.</p>
+  </div>
+</div>
+
+<div id="end-screen">
+  <div class="menu-card">
+    <h1 id="end-title">SORTIE COMPLETE</h1>
+    <p id="end-text"></p>
+    <button id="again-button">FLY AGAIN (R)</button>
+  </div>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
